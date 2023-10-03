@@ -1,19 +1,18 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ChakraProvider, Button } from "@chakra-ui/react";
 import Home from "./pages/Home";
 import LoginWithReddit from "./pages/Login";
+import TeamPage from './pages/TeamPage';
 
 function App() {
   return (
-    <ChakraProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/login/callback" element={<LoginWithReddit/>} />
+          <Route path="/team" element={<TeamPage />} />
           <Route path="/" element={<Home/>} />
         </Routes>
       </BrowserRouter>
-    </ChakraProvider>
   );
 }
 
