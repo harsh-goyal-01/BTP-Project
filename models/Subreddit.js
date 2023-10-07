@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const subredditSchema = new mongoose.Schema({
-  subreddit: String,
+  subreddit: {
+    type: String,
+    unique: true,
+  },
   scores: [Number],
 });
 

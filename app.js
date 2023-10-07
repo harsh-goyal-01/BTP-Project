@@ -73,14 +73,16 @@ app.post("/submit_data", async (req, res) => {
         const score = parseInt(subredditValueMapping[subreddit]);
         console.log(score);
         let subredditDoc = await Subreddit.findOne({ subreddit });
+        console.log('subredditDoc', subredditDoc);
         if (!subredditDoc) {
-          console.log('subredditDoc', subredditDoc);
           subredditDoc = new Subreddit({ subreddit, scores: [] });
         }
-        else {
-          console.log('not found');
+        else{
+          console.log('found');
         }
+        console.log('subredditDoc', subredditDoc);
         subredditDoc.scores.push(score);
+        console.log('subredditDoc updated', subredditDoc);
         await subredditDoc.save();
     }
     res.send("Success");
